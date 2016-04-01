@@ -12,3 +12,9 @@
   votes: 0
   )
 end
+
+# 1000.times do
+#   Vote.create!(
+#   link: rand(votes)
+#   )
+# end
