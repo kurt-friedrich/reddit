@@ -9,7 +9,6 @@
   Link.create!(
   title: Faker::Book.title,
   url:   Faker::Internet.url,
-  votes: 0
   )
 end
 
