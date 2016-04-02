@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :votes
-  resources :links
+  resources :links do
+    resources :votes
+  end
 
   root 'links#index'
   # The priority is based upon order of creation: first created -> highest priority.

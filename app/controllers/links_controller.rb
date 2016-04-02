@@ -10,7 +10,8 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link = Link.find(params[:id])
+    @link.votes.create
+    redirect_to @link.url
   end
 
   # GET /links/new
@@ -61,6 +62,13 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @link = Link.find(params[:id])
+    @link.votes.create
+    redirect_to(link_path)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
