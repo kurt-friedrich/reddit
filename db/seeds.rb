@@ -12,8 +12,8 @@
   )
 end
 
-# 1000.times do
-#   Vote.create!(
-#   link: rand(votes)
-#   )
-# end
+1000.times do
+  Vote.create!(
+  link_id: Link.find((1..20).to_a.sample).id
+  )
+end
