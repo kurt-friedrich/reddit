@@ -19,10 +19,6 @@ class LinksController < ApplicationController
     @link = Link.new
   end
 
-  # GET /links/1/edit
-  def edit
-  end
-
   # POST /links
   # POST /links.json
   def create
@@ -37,6 +33,10 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /links/1/edit
+  def edit
   end
 
   # PATCH/PUT /links/1
@@ -62,13 +62,6 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def upvote
-    @link = Link.find(params[:id])
-    @link.votes.create
-    redirect_to(link_path)
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
