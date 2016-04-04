@@ -9,7 +9,7 @@ class VotesController < ApplicationController
 
   def show
     Vote.new(vote_params).save!
-    redirect_to links_path
+    redirect_to(links_path)
   end
 
   private
