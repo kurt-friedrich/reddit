@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <h2><%= link_to link.title, link %></h2>
-  <p><%= button_to "Upvote", link %></p>
+  <p><%= button_to "Upvote", link_votes_path(link) %></p>
   <p><%= link.votes.size %></p>
   <p class="meta">Posted on <%= link.created_at.to_date.to_s %></p>
 </div>

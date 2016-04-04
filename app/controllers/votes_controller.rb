@@ -4,7 +4,9 @@ class VotesController < ApplicationController
   end
 
   def create
-    Vote.new(vote_params).save!
+    @link = Link.find(params[:link_id])
+    @link.votes.create
+    redirect_to :root
   end
 
   def show
