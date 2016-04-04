@@ -1,6 +1,16 @@
-<div class="col-md-6">
-  <h2><%= link_to link.title, link %></h2>
-  <p><%= button_to "Upvote", link_votes_path(link) %></p>
-  <p><%= link.votes.size %></p>
-  <p class="meta">Posted on <%= link.created_at.to_date.to_s %></p>
+<div class="col-md-8 col-md-push-2 each-link">
+  <div class="row">
+    <div class="vote_ticker">
+      <div class="upvote_arrow">
+        <%= link_to raw('<span class="glyphicon glyphicon-arrow-up"></span>'), link_votes_path(link), class: "btn btn-sm btn-default", method: :post %>
+      </div>
+      <div class="votes_size">
+        <%= link.votes.size %>
+      </div>
+    </div>
+    <div class="link_info">
+      <h4><%= link_to link.title, link %></h4>
+      <p class="meta">Posted on <%= link.created_at.to_date.to_s %></p>
+    </div>
+  </div>
 </div>
