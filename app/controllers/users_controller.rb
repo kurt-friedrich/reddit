@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :disallow_user, :only => [:new, :create]
 
   def index
