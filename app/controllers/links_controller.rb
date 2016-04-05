@@ -10,7 +10,6 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    require_user
     @link.votes.create
     redirect_to @link.url
   end
