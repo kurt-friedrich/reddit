@@ -10,7 +10,7 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link.votes.create
+    @link.votes.create(user: current_user)
     redirect_to @link.url
   end
 
@@ -71,6 +71,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :votes)
+      params.require(:link).permit(:url, :votes, :user)
     end
 end
