@@ -3,18 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.site-title {
+.site-header {
   background-color: #cfe3fa;
-  padding-left: 2em;
+  padding: 0.5em 0em 0.5em 2em;
+}
+
+.site-title, .site-title h1, .user-stuff, .user-stuff p {
+  display: inline;
+}
+
+.user-stuff p {
+  padding-left: 1em;
 }
 
 .each-link {
+  margin-top: 0.5em;
   margin-left: 1em;
 }
 
 .vote_ticker {
   display: inline-block;
-  padding: 0em 1em 1em 1em;
+  padding: 0em 1em 0em 1em;
 }
 
 .vote_ticker .votes_size {
@@ -32,7 +41,6 @@
 .pagination-holder {
   margin-left: 2em;
 }
-
 
 h4 {
   display: inline;

@@ -1,5 +1,11 @@
-<div class="site-title">
-  <h1>tite links</h1>
+<div class="site-header">
+  <div class="site-title">
+      <h1>tite links</h1>
+  </div>
+  <div class="user-stuff">
+    <p><%= link_to 'login', login_path %></p>
+    <p><%= link_to 'signup', signup_path %></p>
+  </div>
 </div>
 
 <%= render @links %>
