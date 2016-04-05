@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_filter :require_user
 
   def create
     require_user
