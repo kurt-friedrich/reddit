@@ -7,8 +7,25 @@
 
 <p>
   <strong>Votes:</strong>
-  <%= @link.votes %>
+  <%= @link.votes.size %>
 </p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<p>
+  <strong>Summary:</strong>
+  <%= @link.summary %>
+</p>
+
+<p><%= link_to 'Back', links_path %></p>
+
+<h4>Comments</h4>
+<% @link.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+  <p><%= link_to "Posted by #{comment.user.username} on #{comment.created_at.to_date.to_s}", [@link, comment] %></p>
+<% end %>
+
+<% if current_user %>
+  <%= simple_form_for [@link, @comment] do |f| %>
+    <%= f.input :body %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

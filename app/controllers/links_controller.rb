@@ -11,8 +11,7 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link.votes.create(user: current_user)
-    redirect_to @link.url
+    @comment = Comment.new
   end
 
   # GET /links/new
@@ -34,6 +33,11 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def upvote
+    @link.votes.create(user: current_user)
+    redirect_to @link.url
   end
 
   # GET /links/1/edit

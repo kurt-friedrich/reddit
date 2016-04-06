@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   resources :users
   resources :links, only: [:new, :show, :index, :create] do
     resources :votes, only: [:new, :index, :create, :update]
+    resources :comments, only: [:create, :show]
   end
 
   root 'links#index'
 
+  get '/upvote' => 'link#upvote', as: :upvote
   get '/signup' => 'users#new', as: :signup
   get '/login' => 'sessions#new', as: :login
   post '/login' => 'sessions#create', as: :login_create
