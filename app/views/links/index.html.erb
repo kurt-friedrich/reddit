@@ -3,8 +3,12 @@
       <h1>tite links</h1>
   </div>
   <div class="user-stuff">
-    <p><%= link_to 'login', login_path %></p>
-    <p><%= link_to 'signup', signup_path %></p>
+    <% if current_user %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'login', login_path %>
+      <%= link_to 'signup', signup_path %>
+    <% end %>
   </div>
 </div>
 

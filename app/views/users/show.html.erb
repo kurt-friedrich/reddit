@@ -1,8 +1,10 @@
 <h1>what up, <%= @user.username %></h1>
 
-<% if current_user %>
-  <%= link_to "Logout", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", login_path %>
-  <%= link_to "Sign up", new_user_path %>
-<% end %>
+<div class="user-stuff">
+  <% if current_user %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Sign up", new_user_path %>
+  <% end %>
+</div>
