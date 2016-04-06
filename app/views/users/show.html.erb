@@ -1,2 +1,16 @@
-<p><%= @user.username %></p>
-<p><%= @user.votes %></p>
+<h1>hello, <%= @user.username %></h1>
+
+<div class="user-stuff">
+  <% if current_user %>
+    <%= link_to "New Link", new_link_path %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Sign up", new_user_path %>
+  <% end %>
+</div>
+<div class="link-votes">
+  <% @user.votes.each do |vote| %>
+    <p><%= vote.link.title %></p>
+  <% end %>
+</div>

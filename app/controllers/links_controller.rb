@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_filter :require_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /links
   # GET /links.json
@@ -10,7 +11,7 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link.votes.create
+    @link.votes.create(user: current_user)
     redirect_to @link.url
   end
 
@@ -22,11 +23,11 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.create(link_params)
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to links_path, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }
@@ -71,6 +72,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:url, :votes)
+      params.require(:link).permit(:url, :title, :summary, :user)
     end
 end
