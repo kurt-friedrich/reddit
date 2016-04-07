@@ -15,8 +15,8 @@
       <% end %>
     </div>
     <div class="link_info">
-      <h4><%= link_to link.title, link %></h4>
-      <p class="meta">Posted on <%= link.created_at.to_date.to_s %></p>
+      <h4><%= link_to link.title, upvote_path %></h4>
+      <p><%= link_to link.created_at.to_date.to_s, link %></p>
     </div>
   </div>
 </div>
